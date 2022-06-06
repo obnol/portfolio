@@ -19,6 +19,7 @@ import {
   SiYarn,
   SiAngular,
   SiRedux,
+  SiNestjs,
 } from 'react-icons/si';
 
 const workData = [
@@ -41,7 +42,7 @@ const Home: NextPage = () => {
           {`Hi, I'm Longbo! 👋 `}
         </p>
         <div className='flex flex-col py-5'>
-          <p className='text-lg text-justify'>
+          <p className='text-lg text-justify dark:text-neutral-400'>
             I&apos;m a ~{age.toPrecision(6)} year old computer science student
             at the Polytechnic University of Catalonia (UPC), currently doing
             Software Engineering specialisation and I&apos;m in my last year of
@@ -64,8 +65,9 @@ const Home: NextPage = () => {
             <TechnologyItem icon={SiNodeDotJs} text='Node.js' />
             <TechnologyItem icon={SiTypescript} text='TypeScript' />
             <TechnologyItem icon={SiReact} text='React.js' />
-            <TechnologyItem icon={SiExpress} text='Express.js' />
             <TechnologyItem icon={SiNextDotJs} text='Next.js' />
+            <TechnologyItem icon={SiExpress} text='Express.js' />
+            <TechnologyItem icon={SiNestjs} text='Nest.js' />
             <TechnologyItem icon={SiTailwindcss} text='TailwindCSS' />
             <TechnologyItem icon={SiRedux} text='Redux' />
             <TechnologyItem icon={SiAngular} text='Angular' />
