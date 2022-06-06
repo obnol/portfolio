@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Layout from '../components/Layout';
 import WorkItem from '../components/WorkItem';
 import { TechnologyItem } from '../components/TechonologyItem';
+import { age } from '../lib/time';
 
 import {
   SiExpress,
@@ -41,11 +42,11 @@ const Home: NextPage = () => {
         </p>
         <div className='flex flex-col py-5'>
           <p className='text-lg text-justify'>
-            {`I'm a Computer Science student at the Polytechnic University of
-            Catalonia (UPC), currently doing Software Engineering specialisation
-            and I'm in my last year of studies. `}
+            I'm a ~{age.toPrecision(6)} year old computer science student at the
+            Polytechnic University of Catalonia (UPC), currently doing Software
+            Engineering specialisation and I'm in my last year of studies.
             <br />
-            {`I'm interested in the field of web development.`}
+            I'm interested in the field of web development.
           </p>
         </div>
         <div className='flex flex-col py-5 w-full'>
