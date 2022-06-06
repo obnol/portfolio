@@ -9,9 +9,9 @@ export function TechnologyItem({
   icon: IconType;
 }) {
   return (
-    <li className='flex space-x-2'>
+    <div className='flex space-x-2'>
       <span>{icon({ className: 'h-6 w-6' })}</span>
       <span>{text}</span>
-    </li>
+    </div>
   );
 }
