@@ -35,6 +35,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <Head>
         <link rel='icon' href='/favicon.ico' />
         <meta name='description' content='Welcome to my personal portfolio' />
+        <title>Portfolio | Longbo</title>
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content='@obnol1' />
       </Head>
@@ -42,6 +43,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <nav className='flex items-center justify-between w-full max-w-2xl mx-auto py-8'>
           <div>
             <NavItem href='/' text='Home' />
+            <NavItem href='/projects' text='Projects' />
             <NavItem href='/uses' text='Uses' />
           </div>
           <button
