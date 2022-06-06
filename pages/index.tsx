@@ -42,11 +42,12 @@ const Home: NextPage = () => {
         </p>
         <div className='flex flex-col py-5'>
           <p className='text-lg text-justify'>
-            I'm a ~{age.toPrecision(6)} year old computer science student at the
-            Polytechnic University of Catalonia (UPC), currently doing Software
-            Engineering specialisation and I'm in my last year of studies.
+            I&apos;m a ~{age.toPrecision(6)} year old computer science student
+            at the Polytechnic University of Catalonia (UPC), currently doing
+            Software Engineering specialisation and I&apos;m in my last year of
+            studies.
             <br />
-            I'm interested in the field of web development.
+            I&apos;m interested in the field of web development.
           </p>
         </div>
         <div className='flex flex-col py-5 w-full'>
