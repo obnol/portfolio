@@ -18,7 +18,7 @@ function NavItem({ href, text }: { href: string; text: string }) {
               ? 'font-bold text-neutral-800 dark:text-neutral-200'
               : 'font-sans text-neutral-600 dark:text-neutral-400'
           }
-          p-1 px-3 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-neutral-800 transition-all
+          p-1 px-3 py-2 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all
         `}
       >
         <span>{text}</span>
