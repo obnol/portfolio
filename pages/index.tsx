@@ -2,7 +2,6 @@ import type { NextPage } from 'next';
 import Layout from '../components/Layout';
 import WorkItem from '../components/WorkItem';
 import { TechnologyItem } from '../components/TechonologyItem';
-import { age } from '../lib/time';
 
 import {
   SiExpress,
@@ -20,6 +19,9 @@ import {
   SiAngular,
   SiRedux,
   SiNestjs,
+  SiPython,
+  SiDjango,
+  SiFlask,
 } from 'react-icons/si';
 
 const workData = [
@@ -43,10 +45,9 @@ const Home: NextPage = () => {
         </p>
         <div className='flex flex-col py-5'>
           <p className='text-lg text-justify dark:text-neutral-400'>
-            I&apos;m a ~{age.toPrecision(6)} year old computer science student
-            at the Polytechnic University of Catalonia (UPC), currently doing
-            Software Engineering specialisation and I&apos;m in my last year of
-            studies.
+            I&apos;m a 21 year old computer science student at the Polytechnic
+            University of Catalonia (UPC), currently doing software engineering
+            specialisation.
             <br />
             I&apos;m interested in the field of web development.
           </p>
@@ -68,9 +69,12 @@ const Home: NextPage = () => {
             <TechnologyItem icon={SiNextDotJs} text='Next.js' />
             <TechnologyItem icon={SiExpress} text='Express.js' />
             <TechnologyItem icon={SiNestjs} text='Nest.js' />
-            <TechnologyItem icon={SiTailwindcss} text='TailwindCSS' />
+            <TechnologyItem icon={SiTailwindcss} text='Tailwind CSS' />
             <TechnologyItem icon={SiRedux} text='Redux' />
             <TechnologyItem icon={SiAngular} text='Angular' />
+            <TechnologyItem icon={SiPython} text='Python' />
+            <TechnologyItem icon={SiDjango} text='Django' />
+            <TechnologyItem icon={SiFlask} text='Flask' />
             <TechnologyItem icon={SiDocker} text='Docker' />
             <TechnologyItem icon={SiMysql} text='MySQL' />
             <TechnologyItem icon={SiPostgresql} text='Postgres' />
