@@ -32,7 +32,7 @@ const WorkItem = (props: WorkInfo) => {
             </p>
             <p className=''>{position}</p>
             <p className='text-sm italic text-neutral-800 dark:text-neutral-500'>{`${startDate} - ${
-              endDate ? endDate : `current`
+              endDate ? endDate : `Present`
             }`}</p>
           </div>
         </div>

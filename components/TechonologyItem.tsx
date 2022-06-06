@@ -1,11 +1,10 @@
-import { ReactNode } from 'react';
 import type { IconType } from 'react-icons';
 
 export function TechnologyItem({
   text,
   icon,
 }: {
-  text: ReactNode;
+  text: string;
   icon: IconType;
 }) {
   return (
