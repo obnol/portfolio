@@ -1,6 +1,18 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Layout from '../components/Layout';
+import WorkItem from '../components/WorkItem';
+
+const workData = [
+  {
+    id: 'waapiti',
+    company: 'Waapiti',
+    link: 'https://www.waapiti.eu/',
+    logo: '/images/waapiti-logo.jpeg',
+    position: 'Software Engineer Intern (Full-Stack)',
+    startDate: 'February 2022',
+    endDate: null,
+  },
+];
 
 const Home: NextPage = () => {
   return (
@@ -11,14 +23,20 @@ const Home: NextPage = () => {
         </p>
         <div className='flex flex-col py-5'>
           <p className='text-lg text-justify'>
-            I{`'`}m a Computer Science student at the Polytechnic University of
-            Catalonia (UPC), currently doing Software Engineering
-            specialitzation and I{`'`}m in my last year of studies.
-            <br />I{`'`}m interested in the field of web development.
+            {`I'm a Computer Science student at the Polytechnic University of
+            Catalonia (UPC), currently doing Software Engineering specialisation
+            and I'm in my last year of studies. `}
+            <br />
+            {`I'm interested in the field of web development.`}
           </p>
         </div>
-        <div className='flex py-5'>
-          <p className='font-bold text-2xl tracking-wide'>Work experience</p>
+        <div className='flex flex-col py-5 w-full'>
+          <p className='font-bold text-2xl tracking-wide mb-5'>
+            Work experience
+          </p>
+          {workData.map((work) => (
+            <WorkItem key={work.id} {...work} />
+          ))}
         </div>
         <div className='flex pt-10'>
           <p className='font-bold text-2xl tracking-wide'>Technologies</p>
