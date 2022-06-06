@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
+
+import Footer from './Footer';
 
 function NavItem({ href, text }: { href: string; text: string }) {
   const router = useRouter();
@@ -14,10 +15,10 @@ function NavItem({ href, text }: { href: string; text: string }) {
         className={`
           ${
             isActive
-              ? 'font-bold text-gray-800 dark:text-gray-200'
-              : 'font-sans text-gray-600 dark:text-gray-400'
+              ? 'font-bold text-neutral-800 dark:text-neutral-200'
+              : 'font-sans text-neutral-600 dark:text-neutral-400'
           }
-          p-1 px-3 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all
+          p-1 px-3 py-2 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all
         `}
       >
         <span>{text}</span>
@@ -30,7 +31,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const { resolvedTheme, setTheme } = useTheme();
 
   return (
-    <div>
+    <>
       <Head>
         <link rel='icon' href='/favicon.ico' />
         <meta name='description' content='Welcome to my personal portfolio' />
@@ -46,7 +47,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <button
             aria-label='Toggle Dark Mode'
             type='button'
-            className='w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all'
+            className='w-9 h-9 bg-neutral-200 rounded-lg dark:bg-neutral-600 flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all'
             onClick={() =>
               setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
             }
@@ -56,7 +57,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               viewBox='0 0 24 24'
               fill='none'
               stroke='currentColor'
-              className='w-5 h-5 text-gray-800 dark:text-gray-200'
+              className='w-5 h-5 text-neutral-800 dark:text-neutral-200'
             >
               {resolvedTheme === 'dark' ? (
                 <path
@@ -77,8 +78,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </button>
         </nav>
       </div>
-      <main className='flex flex-col justify-center'>{children}</main>
-    </div>
+      <main className='flex flex-col justify-center px-5'>
+        {children}
+        <Footer />
+      </main>
+    </>
   );
 };
 
