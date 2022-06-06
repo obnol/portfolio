@@ -1,6 +1,24 @@
 import type { NextPage } from 'next';
 import Layout from '../components/Layout';
 import WorkItem from '../components/WorkItem';
+import { TechnologyItem } from '../components/TechonologyItem';
+
+import {
+  SiExpress,
+  SiDocker,
+  SiNpm,
+  SiGit,
+  SiNextdotjs as SiNextDotJs,
+  SiNodedotjs as SiNodeDotJs,
+  SiPostgresql,
+  SiMysql,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiYarn,
+  SiAngular,
+  SiRedux,
+} from 'react-icons/si';
 
 const workData = [
   {
@@ -38,8 +56,24 @@ const Home: NextPage = () => {
             <WorkItem key={work.id} {...work} />
           ))}
         </div>
-        <div className='flex pt-10'>
-          <p className='font-bold text-2xl tracking-wide'>Technologies</p>
+        <div className='flex flex-col pt-10 w-full'>
+          <p className='font-bold text-2xl tracking-wide pb-5'>Technologies</p>
+          <div className='grid grid-cols-3 gap-4 sm:grid-cols-4 w-full'>
+            <TechnologyItem icon={SiNodeDotJs} text='Node.js' />
+            <TechnologyItem icon={SiTypescript} text='TypeScript' />
+            <TechnologyItem icon={SiReact} text='React.js' />
+            <TechnologyItem icon={SiExpress} text='Express.js' />
+            <TechnologyItem icon={SiNextDotJs} text='Next.js' />
+            <TechnologyItem icon={SiTailwindcss} text='TailwindCSS' />
+            <TechnologyItem icon={SiRedux} text='Redux' />
+            <TechnologyItem icon={SiAngular} text='Angular' />
+            <TechnologyItem icon={SiDocker} text='Docker' />
+            <TechnologyItem icon={SiMysql} text='MySQL' />
+            <TechnologyItem icon={SiPostgresql} text='Postgres' />
+            <TechnologyItem icon={SiNpm} text='Npm' />
+            <TechnologyItem icon={SiYarn} text='Yarn' />
+            <TechnologyItem icon={SiGit} text='Git' />
+          </div>
         </div>
       </div>
     </Layout>
