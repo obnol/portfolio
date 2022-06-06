@@ -5,12 +5,12 @@ import Layout from '../components/Layout';
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className='flex flex-col items-start max-w-2xl w-full mx-auto mb-8'>
-        <p className='font-extrabold text-4xl tracking-wider text-neutral-800 dark:text-neutral-200'>
+      <div className='flex flex-col items-start max-w-2xl w-full mx-auto mb-8 text-neutral-800 dark:text-neutral-200'>
+        <p className='font-extrabold text-4xl tracking-wider'>
           {`Hi, I'm Longbo! 👋 `}
         </p>
         <div className='flex flex-col py-5'>
-          <p className='text-neutral-800 dark:text-neutral-200 text-lg text-justify'>
+          <p className='text-lg text-justify'>
             I{`'`}m a Computer Science student at the Polytechnic University of
             Catalonia (UPC), currently doing Software Engineering
             specialitzation and I{`'`}m in my last year of studies.
