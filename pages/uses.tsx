@@ -21,7 +21,9 @@ const Uses: NextPage = () => {
             priority
           />
         </div>
-        <div className='flex flex-col'></div>
+        <div className='flex flex-col w-full'>
+          <p className='flex justify-center py-5 text-lg font-bold'>{`(In progress...)`}</p>
+        </div>
       </div>
     </Layout>
   );
