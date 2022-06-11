@@ -45,7 +45,7 @@ const Home: NextPage = () => {
         </p>
         <div className='flex flex-col py-5'>
           <p className='text-lg text-justify dark:text-neutral-400'>
-            I&apos;m a 21 year old computer science student at the Polytechnic
+            I&apos;m a 22 year old computer science student at the Polytechnic
             University of Catalonia (UPC), currently doing software engineering
             specialisation.
             <br />
