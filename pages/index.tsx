@@ -39,12 +39,12 @@ const workData = [
 const Home: NextPage = () => {
   return (
     <Layout>
-      <div className='flex flex-col items-start max-w-2xl w-full mx-auto mb-8 text-neutral-800 dark:text-neutral-200'>
-        <p className='font-extrabold text-4xl tracking-wider'>
+      <div className='mx-auto mb-8 flex w-full max-w-2xl flex-col items-start text-neutral-800 dark:text-neutral-200'>
+        <p className='text-4xl font-extrabold tracking-wider'>
           {`Hi, I'm Longbo! 👋 `}
         </p>
         <div className='flex flex-col py-5'>
-          <p className='text-lg text-justify dark:text-neutral-400'>
+          <p className='text-justify text-lg text-neutral-600 dark:text-neutral-400'>
             I&apos;m a 22 year old computer science student at the Polytechnic
             University of Catalonia (UPC), currently doing software engineering
             specialisation.
@@ -52,17 +52,26 @@ const Home: NextPage = () => {
             I&apos;m interested in the field of web development.
           </p>
         </div>
-        <div className='flex flex-col py-5 w-full'>
-          <p className='font-bold text-2xl tracking-wide mb-5'>
+        <div className='flex flex-col py-5'>
+          <p className='mb-5 text-2xl font-bold tracking-wide'>
+            What I&apos;m doing now
+          </p>
+          <p className='text-justify text-lg text-neutral-600  dark:text-neutral-400'>
+            I&apos;m currently improving my knowledge of React. I&apos;d also
+            like to start with data science and machine learning
+          </p>
+        </div>
+        <div className='flex w-full flex-col py-5'>
+          <p className='mb-5 text-2xl font-bold tracking-wide'>
             Work experience
           </p>
           {workData.map((work) => (
             <WorkItem key={work.id} {...work} />
           ))}
         </div>
-        <div className='flex flex-col pt-10 w-full'>
-          <p className='font-bold text-2xl tracking-wide pb-5'>Technologies</p>
-          <div className='grid grid-cols-3 gap-4 sm:grid-cols-4 w-full'>
+        <div className='flex w-full flex-col pt-10'>
+          <p className='pb-5 text-2xl font-bold tracking-wide'>Technologies</p>
+          <div className='grid w-full grid-cols-3 gap-4 sm:grid-cols-4'>
             <TechnologyItem icon={SiNodeDotJs} text='Node.js' />
             <TechnologyItem icon={SiTypescript} text='TypeScript' />
             <TechnologyItem icon={SiReact} text='React.js' />
