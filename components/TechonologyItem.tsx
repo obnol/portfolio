@@ -10,7 +10,7 @@ export function TechnologyItem({
   return (
     <div className='flex space-x-2 '>
       <span>{icon({ className: 'h-6 w-6' })}</span>
-      <span className='dark:text-neutral-400'>{text}</span>
+      <span className='text-neutral-600 dark:text-neutral-400'>{text}</span>
     </div>
   );
 }
