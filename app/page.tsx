@@ -3,6 +3,12 @@ import Post from '@/components/post';
 
 const data = [
   {
+    company: 'Tracksvault',
+    description: 'Uncover your Spotify highlights.',
+    date: '2023-07-04T00:00:00',
+    image: '/tracksvault-logo.png',
+  },
+  {
     company: 'Peersyst',
     description: 'Joined as a Full-Stack developer with main focus in frontend.',
     date: '2023-06-29T00:00:00',
