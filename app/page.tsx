@@ -12,7 +12,7 @@ export default function Home() {
 
       <p className='font-semibold text-xl'>Longbo</p>
 
-      <div className='text-muted-foreground text-sm space-y-1 pb-8'>
+      <div className='text-muted-foreground space-y-1 pb-8'>
         <p>Software engineer</p>
         <p>📍 Barcelona, Spain</p>
       </div>

@@ -18,18 +18,18 @@ export default function Post({ post }: PostProps) {
   const { company, date, description, image, link } = post;
   return (
     <div className='flex items-start py-2'>
-      <Avatar className='h-5 w-5'>
+      <Avatar className='h-5 w-5 mt-[2px]'>
         <AvatarImage src={image} alt='peersyst-logo' />
         <AvatarFallback>P</AvatarFallback>
       </Avatar>
 
-      <div className='ml-2 text-sm gap-2 flex flex-col'>
+      <div className='ml-2 gap-2 flex flex-col'>
         <div className='flex items-center'>
           <p>
             <Link href={link} className='font-semibold hover:underline hover:underline-offset-2' target='_blank'>
               {company}
             </Link>
-            <span className='text-muted-foreground'>{` · ${formatDateAgo(date)}`}</span>
+            <span className='text-muted-foreground text-sm'>{` · ${formatDateAgo(date)}`}</span>
           </p>
         </div>
 
