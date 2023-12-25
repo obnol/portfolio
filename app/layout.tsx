@@ -1,12 +1,35 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { GeistMono } from 'geist/font/mono';
 import Script from 'next/script';
+import { Epilogue } from 'next/font/google';
+
+const epilogue = Epilogue({
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://longbo.dev'),
   title: 'longbo',
   description: 'Software engineer',
-  icons: [],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://longbo.dev',
+    title: 'longbo',
+    description: 'Software engineer',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  keywords: ['longbo', 'longbo qiu', 'qiu', 'software engineer', 'software developer', 'web developer', 'full stack developer'],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -25,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         rel='icon'
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>"
       />
-      <body className={GeistMono.className}>{children}</body>
+      <body className={epilogue.className}>{children}</body>
     </html>
   );
 }
