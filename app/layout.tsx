@@ -8,14 +8,14 @@ const epilogue = Epilogue({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://longbo.dev'),
-  title: 'longbo',
+  metadataBase: new URL('https://obnol.com'),
+  title: 'obnol',
   description: 'Software engineer',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://longbo.dev',
-    title: 'longbo',
+    url: 'https://obnol.com',
+    title: 'obnol',
     description: 'Software engineer',
   },
   robots: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  keywords: ['longbo', 'longbo qiu', 'qiu', 'software engineer', 'software developer', 'web developer', 'full stack developer'],
+  keywords: ['longbo', 'longbo qiu', 'obnol', 'software engineer', 'software developer', 'web developer', 'full stack developer'],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -44,10 +44,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           gtag('config', 'G-J4B9Q9N533');
           `}
       </Script>
-      <link
-        rel='icon'
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>"
-      />
       <body className={epilogue.className}>{children}</body>
     </html>
   );
