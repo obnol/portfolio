@@ -6,7 +6,7 @@ export const feedPosts: Post[] = [
     entity: 'Bulkbuy',
     description: 'Your #1 source for local sneakers reselling. Easily generate your WTB and redefine your bulkbuy',
     link: 'https://bulkbuy.io',
-    date: new Date('2023-11-25'),
+    date: new Date('2023-11-14'),
   },
   {
     image: '/tracksvault-logo.png',
