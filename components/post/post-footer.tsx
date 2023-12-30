@@ -21,6 +21,7 @@ export default function PostFooter({ link }: PostFooterProps): JSX.Element {
             variant: 'ghost',
           })
         )}
+        aria-label='View post'
       >
         <ExternalLinkIcon className='h-4 w-4' aria-hidden='true' />
       </Link>
