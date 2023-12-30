@@ -1,17 +1,22 @@
+import { Post } from '@/lib/types';
 import PostFooter from './post-footer';
 import PostHeader from './post-header';
 import PostImage from './post-image';
 
-export default function Post(): JSX.Element {
+interface PostProps {
+  post: Post;
+}
+
+export default function Post({ post }: PostProps): JSX.Element {
   return (
     <div className='flex gap-4'>
       <div>
-        <PostImage />
+        <PostImage image={post.image} />
       </div>
-      <div className='flex flex-col'>
-        <PostHeader />
-        <p className='font-light'>You can find me here where I share about life, thoughts, and my coding adventures. 🌐</p>
-        {/* <PostFooter /> */}
+      <div className='flex flex-col w-full'>
+        <PostHeader entity={post.entity} date={post.date} />
+        <p className='font-light'>{post.description}</p>
+        <PostFooter link={post.link} />
       </div>
     </div>
   );

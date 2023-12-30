@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   keywords: ['longbo', 'longbo qiu', 'obnol', 'software engineer', 'software developer', 'web developer', 'full stack developer'],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <Script src='https://www.googletagmanager.com/gtag/js?id=G-J4B9Q9N533' strategy='afterInteractive' />

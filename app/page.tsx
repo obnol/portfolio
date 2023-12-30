@@ -1,9 +1,10 @@
 import Header from '@/components/header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import EmailContactBtn from '@/components/email-contact-btn';
-import Post from '@/components/post/post';
+import ProfileTab from '@/components/profile-tab';
+import FeedTab from '@/components/feed-tab';
 
-export default function Home(): JSX.Element {
+export default async function Home(): Promise<JSX.Element> {
   return (
     <main className='flex min-h-screen flex-col mx-auto max-w-xl p-8 sm:p-12 gap-8'>
       <Header />
@@ -21,9 +22,11 @@ export default function Home(): JSX.Element {
         </div>
 
         <TabsContent value='profile'>
-          <Post />
+          <ProfileTab />
         </TabsContent>
-        <TabsContent value='feed'>Coming soon...</TabsContent>
+        <TabsContent value='feed'>
+          <FeedTab />
+        </TabsContent>
       </Tabs>
     </main>
   );
