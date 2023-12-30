@@ -18,14 +18,14 @@ export const profilePosts: Post[] = [
   {
     image: '/peersyst-logo.jpeg',
     entity: 'Peersyst',
-    description: 'Joined as a Software Engineer. Currently working on a mobile wallet app and helping out with the XRPL EVM Sidechain',
+    description: 'Joined as a Full-Stack developer. Currently working on a mobile wallet app and helping out with the XRPL EVM Sidechain',
     link: 'https://peersyst.com/',
     date: new Date('2023-06-29'),
   },
   {
     image: '/waapiti-logo.jpeg',
     entity: 'Waapiti',
-    description: 'Full-time. Maintained the SaaS platform and built new features',
+    description: 'Joined as a Full-Stack developer. Maintained the SaaS platform and built new features',
     link: 'https://www.waapiti.eu/',
     date: new Date('2023-01-31'),
   },
