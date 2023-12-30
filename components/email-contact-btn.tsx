@@ -18,6 +18,7 @@ export default function EmailContactBtn(): JSX.Element {
           className: 'rounded-xl',
         })
       )}
+      aria-label='Contact button'
     >
       <EnvelopeClosedIcon className='h-4 w-4' aria-hidden='true' />
     </Link>
