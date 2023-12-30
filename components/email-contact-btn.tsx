@@ -9,7 +9,7 @@ export default function EmailContactBtn(): JSX.Element {
   }
 
   return (
-    <Button variant='outline' size='icon' className='rounded-xl' onClick={handleOnClick}>
+    <Button variant='outline' size='icon' className='rounded-xl' onClick={handleOnClick} aria-label='contact-button'>
       <EnvelopeClosedIcon className='h-4 w-4' />
     </Button>
   );
