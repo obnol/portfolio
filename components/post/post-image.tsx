@@ -1,5 +1,4 @@
 import { Post } from '@/lib/types';
-import { Icons } from '../icons';
 
 type PostImageProps = Pick<Post, 'image'>;
 
