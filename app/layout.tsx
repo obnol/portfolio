@@ -9,7 +9,7 @@ const epilogue = Epilogue({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://obnol.com'),
-  title: 'obnol',
+  title: 'obnol.com',
   description: 'Software engineer',
   openGraph: {
     type: 'website',
