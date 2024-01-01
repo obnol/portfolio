@@ -19,7 +19,8 @@ export default function PostFooter({ link }: PostFooterProps): JSX.Element {
           buttonVariants({
             size: 'icon',
             variant: 'ghost',
-          })
+          }),
+          'cursor-alias'
         )}
         aria-label='View post'
       >
