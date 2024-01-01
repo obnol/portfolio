@@ -6,14 +6,14 @@ export const profilePosts: Post[] = [
     entity: '𝕏',
     description: 'You can find me here, where I share about life, thoughts, and my coding adventures 🌐',
     link: 'https://x.com/obnol1',
-    date: 'Just now',
+    date: new Date('2023-12-30'),
   },
   {
     image: '/github-mark.png',
     entity: 'Github',
     description: 'Check out my code and projects here. Will be sharing more soon! 🚀',
     link: 'https://github.com/obnol',
-    date: 'Just now',
+    date: new Date('2023-12-30'),
   },
   {
     image: '/peersyst-logo.jpeg',
