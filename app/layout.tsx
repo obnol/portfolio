@@ -8,13 +8,13 @@ const epilogue = Epilogue({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://obnol.com'),
+  metadataBase: new URL('https://www.obnol.com'),
   title: 'obnol.com',
   description: 'Software engineer',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://obnol.com',
+    url: 'https://www.obnol.com',
     title: 'obnol',
     description: 'Software engineer',
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  keywords: ['longbo', 'longbo qiu', 'obnol', 'software engineer', 'software developer', 'web developer', 'full stack developer'],
+  keywords: ['obnol', 'longbo', 'longbo qiu', 'software engineer', 'software developer', 'web developer', 'full stack developer'],
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
