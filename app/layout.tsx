@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Epilogue } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 
-const epilogue = Epilogue({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
@@ -44,7 +44,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           gtag('config', 'G-J4B9Q9N533');
           `}
       </Script>
-      <body className={epilogue.className}>{children}</body>
+      <body className={geistMono.className}>{children}</body>
     </html>
   );
 }

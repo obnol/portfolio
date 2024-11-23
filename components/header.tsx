@@ -1,5 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
+import type { JSX } from "react";
+
 export default function Header(): JSX.Element {
   return (
     <div className="flex flex-col gap-4 pt-4 sm:pt-24">

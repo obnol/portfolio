@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import type { JSX } from "react";
+
 export function Footer(): JSX.Element {
   return (
     <div className="flex flex-col gap-2">
