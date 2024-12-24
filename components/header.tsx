@@ -14,6 +14,7 @@ export default function Header(): JSX.Element {
         <div className="text-muted-foreground text-sm flex flex-col gap-2">
           <p>Software engineer based in Barcelona, Spain</p>
           <p>Always learning 💭</p>
+          <p>🇪🇸 🇨🇳 🇺🇸</p>
         </div>
       </div>
     </div>

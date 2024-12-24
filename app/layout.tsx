@@ -9,14 +9,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.obnol.com"),
-  title: "obnol.com",
-  description: "Software engineer",
+  title: {
+    default: "obnol.com",
+    template: "%s | obnol.com",
+  },
+  description: "software engineer",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.obnol.com",
     title: "obnol",
-    description: "Software engineer",
+    description: "software engineer",
   },
   robots: {
     index: true,
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={geistMono.className}>
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-J4B9Q9N533" strategy="afterInteractive" />
       <Script id="google-analytics">
         {`
@@ -44,7 +47,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           gtag('config', 'G-J4B9Q9N533');
           `}
       </Script>
-      <body className={geistMono.className}>{children}</body>
+      <body className="antialiased tracking-tight">
+        <div className="flex flex-col min-h-screen p-8 md:pt-16">
+          <main className="max-w-2xl mx-auto w-full space-y-6">{children}</main>
+        </div>
+      </body>
     </html>
   );
 }
