@@ -6,11 +6,11 @@ export function Connect() {
       <p className="">
         follow me on{" "}
         <Link className="underline underline-offset-2 cursor-alias" href="https://x.com/obnol1" target="_blank">
-          X
+          x
         </Link>
         , view my code on{" "}
         <Link href="https://github.com/obnol" className="underline underline-offset-2 cursor-alias">
-          Github
+          github
         </Link>{" "}
         or email me at{" "}
         <Link href="mailto:contact@obnol.com" className="cursor-alias">
