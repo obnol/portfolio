@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/mdx": "15.1.2",
+    "@supabase/ssr": "^0.5.2",
     "@tailwindcss/postcss": "4.0.0-beta.8",
     "@types/mdx": "^2.0.13",
     "@types/node": "20.4.5",
