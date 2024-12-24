@@ -9,7 +9,7 @@ async function getWritingSlugs(dir: string) {
   return entries
     .filter((entry) => entry.isFile() && entry.name === "page.mdx")
     .map((entry) => {
-      const relativePath = path.relative(dir, path.join(entry.parentPath, entry.name));
+      const relativePath = path.relative(dir, path.join(dir, entry.name));
       return path.dirname(relativePath);
     })
     .map((slug) => slug.replace(/\\/g, "/"));
