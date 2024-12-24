@@ -1,13 +1,10 @@
 import Link from "next/link";
 
-import type { JSX } from "react";
-
-export function Footer(): JSX.Element {
+export function Connect() {
   return (
     <div className="flex flex-col gap-2">
-      <p className="font-semibold">Connect</p>
-      <p className="text-muted-foreground text-sm">
-        Follow me on{" "}
+      <p className="">
+        follow me on{" "}
         <Link className="underline underline-offset-2 cursor-alias" href="https://x.com/obnol1" target="_blank">
           X
         </Link>
