@@ -49,7 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </Script>
       <body className="antialiased tracking-tight">
         <div className="flex flex-col min-h-screen p-8 md:pt-16">
-          <main className="max-w-2xl mx-auto w-full space-y-8">{children}</main>
+          <main className="max-w-2xl mx-auto w-full space-y-16">{children}</main>
         </div>
       </body>
     </html>
