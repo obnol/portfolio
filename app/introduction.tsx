@@ -1,4 +1,4 @@
-export function Introduction(): JSX.Element {
+export function Introduction() {
   return (
     <div className="space-y-4">
       <p>
