@@ -30,3 +30,13 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
+
+ul {
+  li:before {
+    content: "—";
+    color: var(--color-gray-500);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+}

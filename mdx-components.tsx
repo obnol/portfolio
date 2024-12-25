@@ -14,12 +14,14 @@ const components = {
   h4: (props: HeadingProps) => <h4 className="font-medium" {...props} />,
   p: (props: ParagraphProps) => <p className="text-gray-800 leading-snug" {...props} />,
   ol: (props: ListProps) => <ol className="text-gray-800 list-decimal pl-5 space-y-2" {...props} />,
-  ul: (props: ListProps) => <ul className="text-gray-800 list-none pl-5 space-y-1" {...props} />,
+  ul: (props: ListProps) => <ul className="text-gray-800 pl-5 space-y-1" {...props} />,
   li: (props: ListItemProps) => <li className="pl-1" {...props} />,
   em: (props: ComponentPropsWithoutRef<"em">) => <em className="font-medium" {...props} />,
   strong: (props: ComponentPropsWithoutRef<"strong">) => <strong className="font-medium" {...props} />,
   a: ({ href, children, ...props }: AnchorProps) => {
-    const className = "text-blue-500 hover:text-blue-700";
+    const className =
+      "text-blue-500 hover:text-blue-700 underline underline-offset-2 decoration-gray-300 decoration-1 hover:decoration-blue-700";
+
     if (href?.startsWith("/")) {
       return (
         <a href={href} className={className} {...props}>
@@ -27,6 +29,7 @@ const components = {
         </a>
       );
     }
+
     if (href?.startsWith("#")) {
       return (
         <a href={href} className={className} {...props}>
