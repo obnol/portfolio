@@ -9,6 +9,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.obnol.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "obnol.com",
     template: "%s | obnol.com",
@@ -18,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.obnol.com",
-    title: "obnol",
+    title: "obnol.com",
     description: "software engineer",
   },
   robots: {
