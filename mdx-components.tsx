@@ -8,9 +8,9 @@ type AnchorProps = ComponentPropsWithoutRef<"a">;
 type BlockquoteProps = ComponentPropsWithoutRef<"blockquote">;
 
 const components = {
-  h1: (props: HeadingProps) => <h1 className="font-medium pt-12 text-2xl mb-0" {...props} />,
-  h2: (props: HeadingProps) => <h2 className="text-gray-800 font-medium mt-8 mb-3" {...props} />,
-  h3: (props: HeadingProps) => <h3 className="text-gray-800 font-medium mt-8 mb-3" {...props} />,
+  h1: (props: HeadingProps) => <h1 className="font-semibold pt-12 text-2xl mb-0" {...props} />,
+  h2: (props: HeadingProps) => <h2 className="text-gray-800 font-semibold mt-8 mb-3" {...props} />,
+  h3: (props: HeadingProps) => <h3 className="text-gray-800 font-semibold mt-8 mb-3" {...props} />,
   h4: (props: HeadingProps) => <h4 className="font-medium" {...props} />,
   p: (props: ParagraphProps) => <p className="text-gray-800 leading-snug" {...props} />,
   ol: (props: ListProps) => <ol className="text-gray-800 list-decimal pl-5 space-y-2" {...props} />,
@@ -47,26 +47,6 @@ const components = {
     const codeHTML = children as string;
     return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
   },
-  Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
-    <table>
-      <thead>
-        <tr>
-          {data.headers.map((header, index) => (
-            <th key={index}>{header}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {data.rows.map((row, index) => (
-          <tr key={index}>
-            {row.map((cell, cellIndex) => (
-              <td key={cellIndex}>{cell}</td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  ),
   blockquote: (props: BlockquoteProps) => <blockquote className="ml-[0.075em] border-l-3 border-gray-300 pl-4 text-gray-700" {...props} />,
 };
 
