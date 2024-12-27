@@ -2,17 +2,24 @@ import { promises as fs } from "fs";
 import path from "path";
 
 async function getWritingSlugs(dir: string) {
-  const entries = await fs.readdir(dir, {
-    recursive: true,
-    withFileTypes: true,
-  });
-  return entries
-    .filter((entry) => entry.isFile() && entry.name === "page.mdx")
-    .map((entry) => {
-      const relativePath = path.relative(dir, path.join(dir, entry.name));
-      return path.dirname(relativePath);
-    })
-    .map((slug) => slug.replace(/\\/g, "/"));
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+
+  const slugs: string[] = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      const subSlugs = await getWritingSlugs(fullPath);
+      slugs.push(...subSlugs);
+    } else if (entry.isFile() && entry.name === "page.mdx") {
+      const relativePath = path.relative(process.cwd(), fullPath);
+      const slug = path.dirname(relativePath).replace(/\\/g, "/");
+      slugs.push(slug);
+    }
+  }
+
+  return slugs;
 }
 
 export default async function sitemap() {
