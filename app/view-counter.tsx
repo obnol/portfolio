@@ -17,5 +17,5 @@ export async function ViewCounter({ slug }: { slug: string }) {
     return <p className={className}>Error fetching views.</p>;
   }
 
-  return <p className={className}>{views?.count || 0} views</p>;
+  return <p className={className}>{views?.count || 1} views</p>;
 }
