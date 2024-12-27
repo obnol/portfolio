@@ -10,18 +10,11 @@ export async function ViewCounter({ slug }: { slug: string }) {
 
   const supabase = await createClient();
 
-  // Fetch the current view count
-  const { data: views, error } = await supabase.from("views").select("count").eq("slug", slug).maybeSingle();
+  // Call the `update_views` db function
+  const { data: views, error } = await supabase.rpc("update_views", { input_slug: slug });
 
   if (error) {
     return <p className={className}>Error fetching views.</p>;
-  }
-
-  // Increment the view count
-  const { error: updateError } = await supabase.from("views").upsert({ slug, count: (views?.count || 0) + 1 }, { onConflict: "slug" });
-
-  if (updateError) {
-    return <p className={className}>Error incrementing views.</p>;
   }
 
   return <p className={className}>{views?.count || 0} views</p>;
