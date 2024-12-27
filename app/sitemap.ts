@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-async function getWritingSlugs(dir: string) {
+async function getWritingSlugs(dir: string, baseDir: string) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
 
   const slugs: string[] = [];
@@ -10,10 +10,10 @@ async function getWritingSlugs(dir: string) {
     const fullPath = path.join(dir, entry.name);
 
     if (entry.isDirectory()) {
-      const subSlugs = await getWritingSlugs(fullPath);
+      const subSlugs = await getWritingSlugs(fullPath, baseDir);
       slugs.push(...subSlugs);
     } else if (entry.isFile() && entry.name === "page.mdx") {
-      const relativePath = path.relative(process.cwd(), fullPath);
+      const relativePath = path.relative(baseDir, fullPath);
       const slug = path.dirname(relativePath).replace(/\\/g, "/");
       slugs.push(slug);
     }
@@ -24,7 +24,7 @@ async function getWritingSlugs(dir: string) {
 
 export default async function sitemap() {
   const writingDirectory = path.join(process.cwd(), "app", "writing");
-  const slugs = await getWritingSlugs(writingDirectory);
+  const slugs = await getWritingSlugs(writingDirectory, writingDirectory);
 
   const notes = slugs.map((slug) => ({
     url: `https://obnol.com/writing/${slug}`,
