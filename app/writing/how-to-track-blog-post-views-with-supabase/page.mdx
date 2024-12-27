@@ -1,0 +1,183 @@
+import { ViewCounter } from "../../view-counter";
+
+export const metadata = {
+  title: "how to track blog post views with supabase",
+  description: "learn how to build a simple view counter for your next.js blog with supabase",
+  alternates: {
+    canonical: "/writing/uses",
+  },
+  openGraph: {
+    title: "how to track blog post views with supabase",
+    description: "learn how to build a simple view counter for your next.js blog with supabase",
+  },
+  twitter: {
+    title: "how to track blog post views with supabase",
+    description: "learn how to build a simple view counter for your next.js blog with supabase",
+  },
+};
+
+# how to track blog post views with supabase
+
+<ViewCounter slug="how-to-track-blog-post-views-with-supabase" />
+
+if you're building a blog with [next.js](https://nextjs.org) and want to track
+the number of views each post gets, you can easily implement a view counter
+using [supabase](https://supabase.com). this tutorial will walk you through the steps to set it up
+
+## prerequisites
+
+before we begin, make sure you have the following:
+
+- a basic understanding of [react](https://react.dev/)
+- a [supabase](https://supabase.com) account and project
+- a [next.js](https://nextjs.org) project, if you don't have one, you can create it with:
+
+```bash
+npx create-next-app@latest my-blog
+```
+
+## 1. create a new table in supabase
+
+go to your supabase dashboard and create a new table called `views` with the
+following columns:
+
+- `id` (type: `uuid`, primary key)
+- `slug` (type: `text`, unique)
+- `count` (type: `integer`, default: `1`)
+
+you can either generate it with the sql editor or use the following sql query:
+
+```sql
+create table views (
+  id uuid primary key default gen_random_uuid(),
+  slug text unique,
+  count integer default 1
+);
+```
+
+## 2. create database function
+
+go to the sql editor in your supabase dashboard and create a new function called `update_views` with the following code:
+
+```sql
+CREATE OR REPLACE FUNCTION update_views(input_slug text)
+RETURNS public.views AS $$
+DECLARE
+    updated_row public.views;
+BEGIN
+    -- Try to update the existing row
+    UPDATE public.views
+    SET count = count + 1
+    WHERE slug = input_slug
+    RETURNING * INTO updated_row;
+
+    -- If no row was updated, insert a new row
+    IF NOT FOUND THEN
+        INSERT INTO public.views (slug, count)
+        VALUES (input_slug, 1)
+        RETURNING * INTO updated_row;
+    END IF;
+
+    RETURN updated_row;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+this function will increment the view count for a given slug or create a new row
+if it doesn't exist. this will allow us to perform the view count increment in a
+single database call, instead of a separate read and write operation
+
+## 3. add supabase to your next.js app
+
+```bash
+npm i @supabase/ssr
+```
+
+> you can also use the `@supabase/supabase-js` package if you prefer, in
+> this tutorial we'll use the `@supabase/ssr` package since it provides
+> server-side rendering support
+
+create a new file called `server.ts` in your project, inside the `utils/supabase` folder, with the following code:
+
+```tsx
+import { createServerClient } from "@supabase/ssr";
+import { cookies } from "next/headers";
+
+export async function createClient() {
+  const cookieStore = await cookies();
+
+  return createServerClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
+    cookies: {
+      getAll() {
+        return cookieStore.getAll();
+      },
+      setAll(cookiesToSet) {
+        try {
+          cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options));
+        } catch {
+          // The `setAll` method was called from a Server Component.
+          // This can be ignored if you have middleware refreshing
+          // user sessions.
+        }
+      },
+    },
+  });
+}
+```
+
+> make sure to add your supabase url and anon key to your `.env.local` file
+
+## 4. create a `view-counter` component
+
+create a new file called `view-counter.tsx` inside the `components` folder in your project with the following
+code:
+
+```tsx
+import { createClient } from "@/utils/supabase/server";
+
+export async function ViewCounter({ slug }: { slug: string }) {
+  const className = "text-xs font-mono text-gray-500";
+
+  if (process.env.NODE_ENV === "development") {
+    // Skip database interactions in development mode
+    return <p className={className}>0 views (development mode)</p>;
+  }
+
+  const supabase = await createClient();
+
+  // Call the `update_views` db function
+  const { data: views, error } = await supabase.rpc("update_views", { input_slug: slug });
+
+  if (error) {
+    return <p className={className}>Error fetching views.</p>;
+  }
+
+  return <p className={className}>{views?.count || 1} views</p>;
+}
+```
+
+this component will increment the view count for the given slug and display the
+number of views
+
+## 5. import the `view-counter` component in your blog posts
+
+use the component in your blog post page like this:
+
+```tsx
+import { ViewCounter } from "@/components/view-counter";
+
+export default function Post({ post }) {
+  return (
+    <div>
+      <h1>{post.title}</h1>
+      <p>{post.content}</p>
+      <ViewCounter slug={post.slug} />
+    </div>
+  );
+}
+```
+
+that's it! now you have a view counter for your blog posts using supabase
+
+hope you found this tutorial helpful! if you have any questions or feedback,
+feel free to reach out to me on [x](https://x.com/obnol1)

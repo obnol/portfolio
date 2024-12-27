@@ -13,6 +13,17 @@
   }
 }
 
+:root {
+  --sh-class: #4ec9b0; /* Classes */
+  --sh-sign: #d4d4d4; /* Operators and punctuation */
+  --sh-string: #ce9178; /* Strings */
+  --sh-keyword: #569cd6; /* Keywords */
+  --sh-comment: #6a9955; /* Comments */
+  --sh-jsxliterals: #dcdcaa; /* Numeric literals */
+  --sh-property: #9cdcfe; /* Object properties */
+  --sh-entity: #c586c0; /* Entities (e.g., function names) */
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -39,4 +50,62 @@ ul {
     width: 1em;
     margin-left: -1em;
   }
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+pre {
+  background-color: #1e1e1e;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  line-height: 1;
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+code {
+  font-family: "Geist Mono", monospace;
+  font-size: 14px;
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
+  background-color: var(--color-gray-100);
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+pre code > span .sh__token--identifier {
+  color: white !important;
+}
+
+code:not(pre code) span {
+  font-weight: 500;
+  color: black !important;
+}
+
+pre code span {
+  font-weight: 500;
 }

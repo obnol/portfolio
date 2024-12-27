@@ -1,4 +1,5 @@
 import React, { ComponentPropsWithoutRef } from "react";
+import { highlight } from "sugar-high";
 
 type HeadingProps = ComponentPropsWithoutRef<"h1">;
 type ParagraphProps = ComponentPropsWithoutRef<"p">;
@@ -13,7 +14,7 @@ const components = {
   h3: (props: HeadingProps) => <h3 className="text-gray-800 font-semibold mt-8 mb-3" {...props} />,
   h4: (props: HeadingProps) => <h4 className="font-medium" {...props} />,
   p: (props: ParagraphProps) => <p className="text-gray-800 leading-snug" {...props} />,
-  ol: (props: ListProps) => <ol className="text-gray-800 list-decimal pl-5 space-y-2" {...props} />,
+  ol: (props: ListProps) => <ol className="text-gray-800 space-y-2" {...props} />,
   ul: (props: ListProps) => <ul className="text-gray-800 pl-5 space-y-1" {...props} />,
   li: (props: ListItemProps) => <li className="pl-1" {...props} />,
   em: (props: ComponentPropsWithoutRef<"em">) => <em className="font-medium" {...props} />,
@@ -44,10 +45,12 @@ const components = {
     );
   },
   code: ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
-    const codeHTML = children as string;
+    const codeHTML = highlight(children as string);
     return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
   },
-  blockquote: (props: BlockquoteProps) => <blockquote className="ml-[0.075em] border-l-3 border-gray-300 pl-4 text-gray-700" {...props} />,
+  blockquote: (props: BlockquoteProps) => (
+    <blockquote className="ml-[0.075em] text-sm border-l-3 border-gray-300 pl-4 text-gray-700" {...props} />
+  ),
 };
 
 declare global {
