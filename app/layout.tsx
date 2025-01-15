@@ -41,15 +41,11 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={geistMono.className}>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-J4B9Q9N533" strategy="afterInteractive" />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-J4B9Q9N533');
-          `}
-      </Script>
+      <Script
+        src="https://cdn.seline.so/seline.js"
+        data-token="ddcc4532013ffa8" // can be found at General settings
+        strategy="afterInteractive"
+      />
       <body className="antialiased tracking-tight">
         <div className="flex flex-col min-h-screen p-8 md:pt-16">
           <main className="max-w-2xl mx-auto w-full space-y-8">{children}</main>
