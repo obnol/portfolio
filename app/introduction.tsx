@@ -2,7 +2,8 @@ export function Introduction() {
   return (
     <div className="space-y-4">
       <p>
-        hey, i&apos;m <span className="italic font-bold">obnol</span>, a software engineer based in barcelona, spain
+        hey, i&apos;m <span className="italic font-bold">longbo</span> <span className="text-neutral-500 italic">(龙博)</span>, a software
+        engineer based in barcelona, spain
       </p>
 
       <p>
